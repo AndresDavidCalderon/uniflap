@@ -6,21 +6,25 @@ public class floor : MonoBehaviour
 {
     public float scrollspeed;
     private Transform trans;
-    private Vector2 transpos;
+    private float initpos;
     void Start()
     {
         trans = GetComponent<Transform>();
+        initpos = trans.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transpos = trans.position;
+        var transpos = trans.position;
         transpos.x-=scrollspeed* Time.deltaTime;
-        if (trans.position.x+(GetComponent<SpriteRenderer>().sprite.texture.width/2)<=Screen.width)
+        var screenwidth= Camera.main.ViewportToWorldPoint(new Vector2(1,1)).x;
+        if (trans.position.x+(GetComponent<SpriteRenderer>().sprite.bounds.size.x/2)<=screenwidth)
         {
             print("reseting floor");
-            transpos.x = GetComponent<SpriteRenderer>().sprite.texture.width / 2;
+            print(screenwidth.ToString());
+            transpos.x = initpos;
         }
+        trans.position = transpos;
     }
 }
