@@ -12,8 +12,6 @@ public class floor : MonoBehaviour
         trans = GetComponent<Transform>();
         initpos = trans.position.x;
     }
-
-    // Update is called once per frame
     void Update()
     {
         var transpos = trans.position;
@@ -21,8 +19,7 @@ public class floor : MonoBehaviour
         var screenwidth= Camera.main.ViewportToWorldPoint(new Vector2(1,1)).x;
         if (trans.position.x+(GetComponent<SpriteRenderer>().sprite.bounds.size.x/2)<=screenwidth)
         {
-            print("reseting floor");
-            print(screenwidth.ToString());
+            System.Console.WriteLine("reseting floor");
             transpos.x = initpos;
         }
         trans.position = transpos;
