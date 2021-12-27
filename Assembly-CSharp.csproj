@@ -54,8 +54,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\terrain\floor.cs" />
-    <Compile Include="Assets\bird\birdfflap.cs" />
     <Compile Include="Assets\terrain\spawner.cs" />
+    <Compile Include="Assets\bird\birdfflap.cs" />
+    <Compile Include="Assets\obstacle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
