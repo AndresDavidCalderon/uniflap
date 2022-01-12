@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class pipe : MonoBehaviour
 {
-    root root;
+
+    birdfflap player;
     private void Start()
     {
-        root = (root)transform.parent.parent.gameObject.GetComponent<MonoBehaviour>() ;
+        player = GameObject.Find("bird").gameObject.GetComponent<birdfflap>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        root.Lose();
+        player.Lose();
     }
 }
